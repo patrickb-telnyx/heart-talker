@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   useClient,
-  useTranscript,
   useConnectionState,
   useConversation,
   useAgentState
@@ -12,7 +11,6 @@ import './Heart.css';
 
 function App() {
   const client = useClient();
-  const transcript = useTranscript();
   const connectionState = useConnectionState();
   const conversation = useConversation();
   const agentState = useAgentState();
