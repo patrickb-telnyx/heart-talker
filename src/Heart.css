@@ -1,0 +1,230 @@
+/* Reset + Full-Page Setup */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, #ffe6f0, #e5f0ff);
+  background-attachment: fixed;
+  font-family: 'Comic Neue', 'Comic Sans MS', 'Segoe UI', sans-serif;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100%;
+  padding: 40px 20px;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 170, 200, 0.3);
+}
+
+/* Title */
+h1 {
+  font-size: 3rem;
+  color: #34495e;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Heart Icon */
+.heart {
+  margin: 60px auto 40px auto;
+  width: 140px;
+  height: 130px;
+  background: #ff4d6d;
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 130px;
+  background: #ff4d6d;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -70px;
+  left: 0;
+}
+
+.heart::after {
+  left: 70px;
+  top: 0;
+}
+
+/* Only animate when speaking */
+.heart.speaking {
+  animation: pump 0.6s infinite;
+}
+
+.heart.thinking {
+  box-shadow: 0 0 30px 5px rgba(255, 51, 102, 0.3);
+  filter: brightness(1.05);
+}
+
+@keyframes pump {
+  0% { transform: scale(1) rotate(-45deg); }
+  50% { transform: scale(1.15) rotate(-45deg); }
+  100% { transform: scale(1) rotate(-45deg); }
+}
+
+/* Status Text */
+h2, h3 {
+  margin: 8px 0;
+  font-weight: normal;
+}
+
+/* Controls */
+.controls {
+  margin: 20px 0;
+}
+
+.controls button,
+.text-entry button {
+  margin: 0 5px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  background: linear-gradient(to bottom right, #7f5af0, #4c34c0);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover,
+.text-entry button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Input Field */
+.text-entry input {
+  padding: 12px;
+  width: 65%;
+  font-size: 1rem;
+  border: 2px solid #6a5acd;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+/* Transcript */
+.transcript {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 700px;
+  text-align: left;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.transcript h3 {
+  margin-bottom: 15px;
+}
+
+.transcript div {
+  margin-bottom: 12px;
+}
+
+.transcript strong {
+  color: #d1007c;
+}
+
+.floating-emoji {
+  position: absolute;
+  top: 100%;
+  font-size: 2rem;
+  animation: floatUp ease-in infinite;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+.floating-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: sparkleUp 2s linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes sparkleUp {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -150px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.heart-glow {
+  position: relative;
+}
+
+.heart-container {
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    0 10px 25px rgba(255, 100, 150, 0.4),
+    0 0 40px rgba(255, 150, 180, 0.6);
+  border-radius: 50%;
+  padding: 1rem;
+  background: radial-gradient(circle at 30% 30%, #ff758c, #ff7eb3);
+}
+
+.heart-glow.pulse::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 192, 203, 0.4), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-glow 1.4s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-glow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
